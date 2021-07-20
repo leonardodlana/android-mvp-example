@@ -1,0 +1,86 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        test.java.srcDirs += 'src/test/kotlin'
+        androidTest.java.srcDirs += 'src/androidTest/kotlin'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+
+    // Shared libraries
+    api "com.google.code.gson:gson:2.8.6"
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api 'com.squareup.retrofit2:converter-gson:2.9.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    api 'com.google.android.material:material:1.3.0'
+    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    api 'androidx.core:core-ktx:1.3.1'
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'com.android.support:multidex:1.0.3'
+
+    // Dagger
+    api 'com.google.dagger:dagger:2.28'
+    api 'com.google.dagger:dagger-android-support:2.28'
+
+    api ("com.nhaarman:mockito-kotlin-kt1.1:1.5.0") {
+        exclude group: 'org.jetbrains.kotlin', module: 'kotlin-reflect'
+    }
+    api 'androidx.test.ext:junit:1.1.1'
+    api "org.assertj:assertj-core:3.12.2"
+    api "androidx.annotation:annotation:1.1.0"
+    api "androidx.test:runner:1.2.0"
+    api "androidx.test:rules:1.2.0"
+    api "org.assertj:assertj-core:3.12.2"
+
+    // RX
+    api("io.reactivex.rxjava2:rxjava:2.2.19")
+    api("io.reactivex.rxjava2:rxkotlin:2.4.0")
+    api "io.reactivex.rxjava2:rxandroid:2.1.1"
+
+    // Glide
+    api 'com.github.bumptech.glide:glide:4.12.0'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
+
+    api 'junit:junit:4.+'
+    api 'androidx.test.ext:junit:1.1.3'
+    api 'androidx.test.espresso:espresso-core:3.4.0'
+}

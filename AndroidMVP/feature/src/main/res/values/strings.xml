@@ -1,0 +1,5 @@
+<resources>
+    <string name="user_details_email_label">Email: </string>
+    <string name="user_details_first_name_label">First Name: </string>
+    <string name="user_details_last_name_label">Last Name: </string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="generic_error">Something went wrong.</string>
+    <string name="generic_retry">Retry</string>
+</resources>
